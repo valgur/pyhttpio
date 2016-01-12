@@ -8,7 +8,7 @@ from urllib_passwords import configure_domain_password
 scihub_credentials = None
 if scihub_credentials:
     passwords = {
-        "https://scihub.esa.int/": scihub_credentials
+        "https://scihub.copernicus.eu/": scihub_credentials
     }
     configure_domain_password(passwords)
 
@@ -49,7 +49,7 @@ class TestSeekableHTTPFile(TestCase):
             self.skipTest("SciHub username and password must be provided for testing")
             return
         # One of the smallest files on SciHub
-        url = "https://scihub.esa.int/dhus/odata/v1/Products('8dfa1139-6643-4e74-b16f-5226d438d7ed')/$value"
+        url = "https://scihub.copernicus.eu/dhus/odata/v1/Products('8dfa1139-6643-4e74-b16f-5226d438d7ed')/$value"
         f = SeekableHTTPFile(url, repeat_time=1, debug=True)
         zf = ZipFile(f)
         namelist = zf.namelist()
